@@ -1,0 +1,4 @@
+# requirements.txt
+flask==1.1
+pickleshare==0.7
+pymongo==3.11

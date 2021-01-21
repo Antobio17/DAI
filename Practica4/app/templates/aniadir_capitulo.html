@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Friends</title> {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>Añadir capítulo de Friends</h1>
+  </div>
+{% endblock %}
+
+{% block alert %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <div style="margin-right: 30px" class="{{ classAlert }}" role="alert"> {{ message }} </div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% endblock %}
+
+{% block content %}
+    <div class="editar">          
+        <form action="{{ url_for('aniadir_capitulo_bd') }}" method="POST">
+            <p>Título:</p>
+            <input type="text" name="titulo" size="20px" value="">
+            <p>Temporada:</p>
+            <input type="text" name="temporada" size="20px" value="">
+            <p>Capítulo:</p>
+            <input type="text" name="numero" size="20px" value="">
+            <p>Estreno:</p>
+            <input type="text" name="fecha" size="20px" value="">
+            <p>Resumen:</p>
+            <textarea name="resumen" placeholder="Escriba un resumen del capítulo!"></textarea><br>
+            <button type="submit" class="btn btn-default">Añadir</button>                            
+        </form>
+    </div>
+{% endblock %}

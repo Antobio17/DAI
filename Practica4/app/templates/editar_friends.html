@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Friends</title> {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>Editar capítulo de Friends</h1>
+  </div>
+{% endblock %}
+
+{% block alert %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <div style="margin-right: 30px" class="{{ classAlert }}" role="alert"> {{ message }} </div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% endblock %}
+
+{% block content %}
+    <div class="editar">          
+        <form action="{{ url_for('editado', name_collection='friends', document_id=collection[0]['_id']) }}" method="POST">
+            <p>Título:</p>
+            <input type="text" name="nuevo_titulo" size="20px" value="{{ collection[0]['name'] }}">
+            <p>Temporada:</p>
+            <input type="text" name="temporada" size="20px" value="{{ collection[0]['season'] }}">
+            <p>Capítulo:</p>
+            <input type="text" name="numero" size="20px" value="{{ collection[0]['number'] }}">
+            <p>Estreno:</p>
+            <input type="text" name="fecha" size="20px" value="{{ collection[0]['airdate'] }}">
+            <p>Resumen:</p>
+            <textarea name="resumen" placeholder="Comparte tu opinión con el autor!">{{ collection[0]['summary'][3:-4] }}</textarea><br>
+            <input name="titulo" type="hidden" value="{{ collection[0]['name'] }}">
+            <button type="submit" class="btn btn-default">Editar</button>                            
+        </form>
+    </div>
+{% endblock %}
+
+<!-- {'_id': ObjectId('58f56189ee9d4bd5e610d6db'), 'id': 40646.0, 'url': 'http://www.tvmaze.com/episodes/40646/friends-1x01-the-one-where-it-all-began', 
+    'name': 'The One Where It All Began', 'season': 1.0, 'number': 1.0, 'airdate': '1994-09-22', 'airtime': '20:00', 'airstamp': '1994-09-22T20:00:00-04:00', 
+    'runtime': 30.0, 'image': {'medium': 'http://static.tvmaze.com/uploads/images/medium_landscape/23/59019.jpg', 
+    'original': 'http://static.tvmaze.com/uploads/images/original_untouched/23/59019.jpg'}, 
+    'summary': "<p>Monica's old friend Rachel moves in with her after leaving her fiancé.</p>", 
+    '_links': {'self': {'href': 'http://api.tvmaze.com/episodes/40646'}}} --> 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Práctica 2: Microframework Flask</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <header id="head">
+            <div class = "cabecera">
+                <h1>Práctica 2</h1>
+                <img src="{{url_for('static', filename='flask.png')}}" height="150" width="300"/>
+            </div>
+        </header>
+        <main>
+            <div class="cuerpo">
+                <div>
+                    <h2>{{ svg }}</h2>
+                    <svg width="800" height="400">
+                        <{{ imagen }}>
+                    </svg>
+                </div>
+                <div class="enlaces">
+                    <a href="http://0.0.0.0:5000"><p>Volver a la página principal</p></a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

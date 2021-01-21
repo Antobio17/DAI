@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Práctica 2: Microframework Flask</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <header id="head">
+            <div class = "cabecera">
+                <h1>Práctica 2</h1>
+                <img src="{{url_for('static', filename='flask.png')}}" height="150" width="300"/>
+            </div>
+        </header>
+        <main>
+            <div class="cuerpo">
+                <div>
+                    <h2>La URL introducida no es correcta. Las posibles URL's son:</h2>
+                    <ul class="lista">
+                        <li type="circle">http://0.0.0.0:5000  -> Página principal</li>
+                        <li type="circle">http://0.0.0.0:5000/ordena/5,3,6,1,8,9,2</li>
+                        <li type="circle">http://0.0.0.0:5000/criba/89</li>
+                        <li type="circle">http://0.0.0.0:5000/fibonacci/7</li>
+                        <li type="circle">http://0.0.0.0:5000/balanceada/[][[][]]</li>
+                        <li type="circle">http://0.0.0.0:5000/balanceada  -> Que generará una secuencia aleatoria</li>
+                        <li type="circle">http://0.0.0.0:5000/expresionRegular/$cadena
+                            <ul class="lista">
+                                <li type="square">$cadena = Jimenez R </li>
+                                <li type="square">$cadena = antonio@gmail.com </li>
+                                <li type="square">$cadena = 1234 5678 9012 3456 ó 1234-5678-9012-3456</li>
+                            </ul>
+                        </li>
+                        <li type="circle">http://0.0.0.0:5000/svg</li>
+                    </ul>
+                </div>
+                <div class="enlaces">
+                    <a href="http://0.0.0.0:5000"><p>Volver a la página principal</p></a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

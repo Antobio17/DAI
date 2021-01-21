@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Inicio</title> {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>{{ ejercicio }}</h1>
+  </div>
+{% endblock %}
+
+{% block alert %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <div style="margin-right: 30px" class="{{ classAlert }}" role="alert"> {{ message }} </div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% endblock %}
+
+{% block content %}
+<h2>Intenta adivinar el número que he generado</h2>
+<form action="{{ url_for('PruebaAdivina') }}" method="POST">
+  <div class="form-group">
+      <label>Adivina el número:</label>
+      <input type="text" class="form-control" name="numero">
+  </div>
+  <button type="submit" class="btn btn-default">Probar Suerte</button>
+</form>
+{% endblock %}

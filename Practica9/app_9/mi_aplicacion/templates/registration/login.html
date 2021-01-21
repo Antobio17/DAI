@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Iniciar Sesión {% endblock %}
+
+{% block jumbotron %} 
+    <div style="background-color: #4B515D !important" class="jumbotron text-center">
+        <h1>Iniciar Sesión</h1>
+        <p>Introduzca las credenciales de su usuario para iniciar sesión.</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Tu contraseña o usuario no son correctos. Por favor vuelve a intentarlo.</p>
+    {% endif %}
+    
+    <div class="formulario">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <td>{{ form.username.label_tag }}</td></br>
+                <td>{{ form.username }}</td>
+            </div>
+            <div class="form-group">
+                <td>{{ form.password.label_tag }}</td></br>
+                <td>{{ form.password }}</td>
+            </div>
+
+            <div>
+                <input style="color: aliceblue;" type="submit" class="boton" value="Iniciar Sesión" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+        </form>
+        {# Assumes you setup the password_reset view in your URLconf #}
+        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Práctica 2: Microframework Flask</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <header id="head">
+            <div class = "cabecera">
+                <h1>Práctica 2</h1>
+                <img src="{{url_for('static', filename='flask.png')}}" height="150" width="300"/>
+            </div>
+        </header>
+        <main>
+            <div class = "cuerpo">
+                <h3>Esta es la ṕagina de inicio de la Práctica 2: Microframework Flask</h3>
+                <p>   
+                    Flask es un micro framework web para Python de uso sencillo pero suficientemente potente que permite desarrollar una aplicación web en poco tiempo.
+                    En esta sesión trataremos de construir algunas pequeñas aplicaciones web usando las opciones más básicas de Flask. De hecho en esta sesión no prestaremos \
+                    aún atención a buenas prácticas de desarrollo (como el uso del patrón MVC). En futuras sesiones se practicarán otros conceptos como el manejo de sesiones, plantillas, 
+                    el acceso a bases de datos, etc.
+                </p>
+                <div class="enlaces">
+                    <a href="http://0.0.0.0:5000/ordena/8,1,3,20,6,2"><p>Ejercicio 2: Ordenar lista de números</p></a>
+                    <a href="http://0.0.0.0:5000/criba/78"><p>Ejercicio 3: Números primos</p></a>
+                    <a href="http://0.0.0.0:5000/fibonacci/7"><p>Ejercicio 4: Término N de Fibonacci</p></a>
+                    <a href="http://0.0.0.0:5000/balanceada"><p>Ejercicio 5: Cadena balanceada (Aleatoria)</p></a>
+                    <a href="http://0.0.0.0:5000/balanceada/[][[]]"><p>Ejercicio 5: Cadena balanceada</p></a>
+                    <a href="http://0.0.0.0:5000/expresionRegular/Jimenez R"><p>Ejercicio 6: Expresión regular (Palabra Y Mayuscula)</p></a>
+                    <a href="http://0.0.0.0:5000/expresionRegular/antonio@gmail.com"><p>Ejercicio 6: Expresión regular (Email)</p></a>
+                    <a href="http://0.0.0.0:5000/expresionRegular/1234-5678-9012-3456"><p>Ejercicio 6: Expresión regular (Tarjeta)</p></a>
+                    <a href="http://0.0.0.0:5000/svg"><p>Ejercicio Extra: SVG</p></a>
+                </div>
+                <p style="text-align: right; margin-right: 30px;">Antonio Jiménez Rodríguez </p>
+            </div>
+        </main>
+    </body>
+</html>

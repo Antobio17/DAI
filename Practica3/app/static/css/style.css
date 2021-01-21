@@ -1,0 +1,42 @@
+main {
+    margin: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    height: 60px;
+}
+
+.stylish-color-dark { 
+    background-color: #3E4551;
+    color: white;
+}
+
+.stylish-color, .jumbotron{
+    background-color: #4B515D;
+}
+
+.barra_lateral {
+    position: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.enlaces {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.enlaces:hover{
+    color: lightcoral;
+    text-decoration: none;
+}

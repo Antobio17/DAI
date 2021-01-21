@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Inicio</title> {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>Bienvenid@{{mensaje_login}}</h1>
+    <h1>Práctica 3</h1>
+    <p>Plantillas, Manejo de Sesiones y Frameworks CSS</p>
+  </div>
+{% endblock %}
+
+{% block alert %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <div style="margin-right: 30px" class="{{ classAlert }}" role="alert"> {{ message }} </div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <p class="lead">Esta es la página principal de la Práctica 3. En esta práctica avanzaremos en el uso de Flask: usaremos un motor de plantillas 
+      (templates) Jinja incorporado en Flask, haremos uso de un framework CSS para que el HTML sea adaptable (responsive) utilizaremos sesiones para gestionar 
+      la identificación de usuarios en la web y otros posibles datos de sesión de nuestra aplicación web.
+    </p>
+  </div>
+{% endblock %}

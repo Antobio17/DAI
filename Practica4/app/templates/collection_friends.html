@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Friends</title> {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>Episodios de Friends</h1>
+  </div>
+{% endblock %}
+
+{% block alert %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <div style="margin-right: 30px" class="{{ classAlert }}" role="alert"> {{ message }} </div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% endblock %}
+
+{% block content %}
+    <form class="filtro" action="{{ url_for('filtrar', name_collection='friends') }}" method="POST">
+        {% if n_documentos_filtrados == 2 %}
+            <p>Mostrar <select class="entradas_tabla" name="n_elementos">
+                <option value="2" selected>2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="20">20</option>
+            </select> entradas</p> 
+        {% elif n_documentos_filtrados == 4 %}
+            <p>Mostrar <select class="entradas_tabla" name="n_elementos">
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="20">20</option>
+            </select> entradas</p> 
+        {% elif n_documentos_filtrados == 6 %}
+            <p>Mostrar <select class="entradas_tabla" name="n_elementos">
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6" selected>6</option>
+                <option value="8">8</option>
+                <option value="20">20</option>
+            </select> entradas</p> 
+        {% elif n_documentos_filtrados == 8 %}
+            <p>Mostrar <select class="entradas_tabla" name="n_elementos">
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8" selected>8</option>
+                <option value="20">20</option>
+            </select> entradas</p> 
+        {% elif n_documentos_filtrados == 20 %}
+            <p>Mostrar <select class="entradas_tabla" name="n_elementos">
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="20" selected>20</option>
+            </select> entradas</p> 
+        {% endif %}
+        <div class="busqueda">
+            <p>Buscar capítulo: <input type="text" name="busqueda" size="20px" value="{{ busqueda }}"></p>
+        </div>
+        <button type="submit" class="btn btn-default">Aplicar</button>
+    </form>
+    <form class="filtro" action="{{ url_for('aniadir_capitulo') }}">
+        <button type="submit" class="btn btn-default">Añadir capítulo</button>
+    </form>
+    
+    <div class="tabla">
+        {% if is_empty %}
+            <h4 style="text-align: center;">Lo siento no se ha encontrado ningún capítulo.</h4>              
+        {% else %}
+            <table class="table table-hover" style="color: white;">
+                <thead>
+                <tr>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Temporada</th>
+                    <th scope="col">Capitulo</th>
+                    <th scope="col">Estreno</th>
+                    <th scope="col">Resumen</th>
+                    <th scope="col">Modificar entrada</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(inicio, fin) %}
+                        <tr>
+                            <td> {{ collection[i]['name'] }} </td> 
+                            <td> {{ collection[i]['season'] }} </td>
+                            <td> {{ collection[i]['number'] }} </td>
+                            <td> {{ collection[i]['airdate'] }} </td>
+                            <td> {{ collection[i]['summary'][3:-4] }} </td> 
+                            <td>
+                                <div class="botones_editar_colecciones">
+                                    <form action="{{ url_for('editar', name_collection='friends', document_id=collection[i]['_id']) }}" method="POST">
+                                        <input type="image" alt="submit" src="{{url_for('static', filename='images/edit.png')}}" height="25" width="25"/>
+                                    </form>
+                                    <form action="{{ url_for('eliminar', name_collection='friends', document_id=collection[i]['_id']) }}" method="POST">
+                                        <input type="image" alt="submit" src="{{url_for('static', filename='images/delete.png')}}" height="25" width="25"/>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>   
+    
+    <div class="paginacion">
+        {% if pagina == 1 %}
+            <form class="filtro" action="{{ url_for('pagina', name_collection='friends', pagina=pagina) }}" method="POST">
+        {% else %}
+            <form class="filtro" action="{{ url_for('pagina', name_collection='friends', pagina=pagina-1) }}" method="POST">
+        {% endif %}
+            <input name="busqueda" type="hidden" value="{{ busqueda }}">
+            <button type="submit" class="btn btn-default" name="anterior">Anterior</button>
+        </form>
+        <input type="text" class="form-control" name="pagina" value="{{ pagina }}">
+        {% if final_lista %}
+            <form class="filtro" action="{{ url_for('pagina', name_collection='friends', pagina=pagina) }}" method="POST">
+        {% else %}
+            <form class="filtro" action="{{ url_for('pagina', name_collection='friends', pagina=pagina+1) }}" method="POST">
+        {% endif %}
+            <input name="busqueda" type="hidden" value="{{ busqueda }}">
+            <button type="submit" class="btn btn-default" name="siguiente">Siguiente</button>
+        </form>
+    </div>
+{% endblock %}

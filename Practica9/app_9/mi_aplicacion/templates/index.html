@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% csrf_token %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    {% if user.is_authenticated %}
+        <h1>Bienvenid@ {{ user.get_username }}</h1>
+    {% else %}
+        <h1>Bienvenid@, regístrate o inicia sesión en nuestra web</h1>
+    {% endif %}
+    <p>Página principal de la Biblioteca Virtual</p>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <p> Esta librería tiene dispone ahora mismo las siguientes unidades: </p>
+    <ul>
+      <li><strong>Libros:</strong> {{ n_libros }}</li>
+      <li><strong>Ejemplares:</strong> {{ n_ejemplares }}</li>
+      <li><strong>Ejemplares disponibles:</strong> {{ n_ejemplares_disponibles }}</li>
+    </ul>
+  </div>
+{% endblock %}

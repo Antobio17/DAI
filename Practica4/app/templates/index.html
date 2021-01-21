@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %} <title>Inicio</title> {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>Bienvenid@{{mensaje_login}}</h1>
+    <h1>Práctica 4</h1>
+    <p>Bases de Datos NoSQL, CRUD</p>
+  </div>
+{% endblock %}
+
+{% block alert %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <div style="margin-right: 30px" class="{{ classAlert }}" role="alert"> {{ message }} </div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <p class="lead">
+      Esta es la página principal de la Práctica 4. En esta práctica avanzaremos en el uso de MongoDB y el CRUD.
+      MongoDB es una base de datos distribuida, basada en documentos y de uso general que ha sido diseñada para desarrolladores de aplicaciones modernas 
+      y para la era de la nube. Ninguna otra ofrece un nivel de productividad de uso tan alto. MongoDB está escrito en C++, aunque las consultas se hacen 
+      pasando objetos JSON como parámetro. Es algo bastante lógico, dado que los propios documentos se almacenan en BSON. Por ejemplo:
+      db.Clientes.find({Nombre:"Pedro"});
+      La consulta anterior buscará todos los clientes cuyo nombre sea Pedro.
+      MongoDB viene de serie con una consola desde la que podemos ejecutar los distintos comandos. Esta consola está construida sobre JavaScript, por lo que 
+      las consultas se realizan utilizando ese lenguaje. Además de las funciones de MongoDB, podemos utilizar muchas de las funciones propias de JavaSciprt. 
+      En la consola también podemos definir variables, funciones o utilizar bucles.
+      Si queremos usar nuestro lenguaje de programación favorito, existen drivers para un gran número de ellos. Hay drivers oficiales para C#, Java, Node.js, 
+      PHP, Python, Ruby, C, C++, Perl o Scala. Aunque estos drivers están soportados por MongoDB, no todos están en el mismo estado de madurez. Por ejemplo el 
+      de C es una versión alpha. Si queremos utilizar un lenguaje concreto, es mejor revisar los drivers disponibles para comprobar si son adecuados para un 
+      entorno de producción.
+    </p>
+    <p class="lead">
+      En informática, CRUD es el acrónimo de "Crear, Leer, Actualizar y Borrar" (del original en inglés: Create, Read, Update and Delete), que se usa para referirse 
+      a las funciones básicas en bases de datos o la capa de persistencia en un software.
+      En algunos lugares, se utilizan las siglas ABM para lo mismo ("Alta, Baja y Modificación"), obviando la operación de "obtener"; el acrónimo ABC para "Altas, 
+      Bajas y Cambios"; ABML siendo la última letra (L) de "listar, listado o lectura"; ABMC siendo la 'C' de "Consulta"; o bien CLAB que sería la traducción literal 
+      del acrónimo ("Crear, Leer, Actualizar y Borrar") también se llega a usar el acrónimo ABCC ("Altas, Bajas, Cambios y Consultas").
+      También es usado el ABCDEF: "Agregar, Buscar, Cambiar, Desplegar (listar), Eliminar, Fichar (Ficha, cédula o Reporte de un registro)".
+      En programación, crear, leer, actualizar y borrar ( con el acrónimo CRUD) son las cuatro funciones básicas de la persistencia de Bases de Datos. Términos 
+      alternativos son usados a veces cuando se definen las cuatro funciones básicas de CRUD, como “recuperar” en vez de “leer”, “modificar” en vez de “actualizar” 
+      o “destruir” en vez de “borrar”. CRUD se usa también a veces para describir convenciones de interfaz de usuario que facilita la vista, búsqueda y modificación 
+      de la información; a menudo se usa en programación de formularios (forms) e informes (reports). El término fue popularizado por primera vez por James Martin en 
+      su libro del año 1980 Managing the Data-base Enviroment. El acrónimo puede extenderse a CRUDL para cubrir el listado de gran cantidad de datos que conllevan una 
+      complejidad tal como paginación cuando los registros de datos son demasiado grandes para alojarse fácilmente en memoria.
+    </p>
+  </div>
+{% endblock %}

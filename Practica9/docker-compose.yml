@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    # directorios para el archivo de configuración y archivos del static
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static:/var/www/static 
+    depends_on:
+      - app_9
+
+  app_9:
+    build: .
+    container_name: app_9
+    # command: gunicorn mi_sitio_web.wsgi:application --bind 0.0.0.0:8000
+    # command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      # - .:/app_9
+      - ./app_9:/app
+      - static:/var/www/static
+    # ports:
+    #   - "8000:8000"
+    depends_on:
+      - db_9
+
+  db_9:
+    image: postgres
+    container_name: db_9
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./datos_db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db_9
+    ports:
+      - 9000:9000
+
+volumes:
+  .:
+  datos_db:
+  static:

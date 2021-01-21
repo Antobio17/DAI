@@ -1,0 +1,158 @@
+.sidebar {
+    width: 18%;
+}
+
+.container-2 {
+    margin: 20px;
+    width: 100%;
+}
+
+.menu-lateral {
+    height: 100vh;
+    padding-top: 25px;
+    margin: 0px;
+} 
+
+.menu-lateral a{
+    font-size: larger;
+    color: black;
+    margin-left: 20px;
+    transition-duration: 0.6s;
+}
+
+.menu-lateral a:hover {
+    text-decoration: none;
+    color: white;
+    transition-duration: 0.6s;
+}
+
+aside nav ul{
+    padding-left:0;
+    transition-duration: 0.6s;
+}
+
+aside nav ul li{
+	align-items: center;
+	list-style-type: none;
+	padding: 10px;
+    cursor:pointer;
+    transition-duration: 0.6s;
+}
+
+aside nav ul li:hover{
+    background-color: #4B515D;
+    transition-duration: 0.6s;
+}
+
+aside nav ul li:hover a{
+    color: white;
+    font-size: 20px;
+    transition-duration: 0.6s;
+}
+
+.entradas_tabla{
+    color: black;
+}
+
+.filtro, .paginacion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filtro p{
+    margin-right: 50px;
+}
+
+.filtro input{
+    color: black;
+}
+
+.botones_editar_colecciones{
+    display:flex;
+}
+
+.editar, .eliminar, .botones_eliminar{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.botones_eliminar{
+    display: flex;
+}
+
+.editar input, .editar textarea{
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.editar textarea{
+    padding: 5px;
+    border-radius: 7px;
+    width: 300px;
+    height: 100px;
+}
+
+.editar button, .filtro button {
+    background-color: #e7e7e7;
+    color: black;
+    border: 2px solid #868686;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.editar button:hover, .filtro button:hover {
+    background-color: #5f5f5f;
+    border: 2px solid black;
+    color: white;
+}
+
+.botones_editar_colecciones input{
+    transition-duration: 0.4s;
+}
+
+.botones_editar_colecciones input:hover{
+    transition-duration: 0.4s;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7)); 
+    height: 28px;
+    width: 28px;
+}
+
+.filtro button {
+    margin-bottom: 13px;
+}
+
+.paginacion button{
+    margin: 10px;
+}
+
+.paginacion input{
+    width: 45px;
+    text-align: center;
+}
+
+footer {
+    width: 83%;
+    text-align: center;
+    padding: 20px;
+    bottom: 1px;
+    position: fixed;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.stylish-color-dark { 
+    background-color: #3E4551;
+    color: white;
+}
+
+.stylish-color, .jumbotron{
+    background-color: #4B515D;
+}

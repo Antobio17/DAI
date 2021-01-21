@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Borrar {% endblock %}
+
+{% block jumbotron %} 
+    <div style="background-color: #4B515D !important" class="jumbotron text-center">
+        <h1>Borrar libro</h1>
+        <p>Está apunto de borrar el libro {{ libro.titulo }}</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>¿Estas seguro de que quieres eliminar este libro?: {{ libro }}?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input class="boton" type="submit" action="" value="Si, borrar." />
+    </form>
+{% endblock %}
