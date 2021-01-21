@@ -6,4 +6,4 @@ En esta práctica añadiremos la autentificación/registro de usuarios a la prá
 
 Usaremos la aplicación de autentificación de Django, o el plugin all-auth, que incluye también autentificación delegada en redes sociales. En Django-allauth Tutorial cuentan como hacerlo.
 
-También es conveniente relacionar los usuarios con los de Django en la tabla de Prestamos
+También es conveniente relacionar los usuarios con los de Django en la tabla de Prestamos.
