@@ -1,0 +1,269 @@
+.stylish-color-dark { 
+    background-color: #3E4551;
+    color: white;
+}
+
+.stylish-color, .jumbotron{
+    background-color: #4B515D;
+}
+
+.sidebar {
+    width: 18%;
+}
+
+.shoppingCart {
+    width: 40%;
+}
+
+.container-2 {
+    margin: 20px;
+    width: 100%;
+}
+
+.menu-lateral {
+    width: 100%;
+    height: 100vh;
+    padding-top: 25px;
+    margin: 0px;
+} 
+
+.menu-lateral a{
+    font-size: larger;
+    color: black;
+    margin-left: 20px;
+    transition-duration: 0.6s;
+}
+
+.menu-lateral a:hover {
+    text-decoration: none;
+    color: white;
+    transition-duration: 0.6s;
+}
+
+aside nav ul{
+    padding-left:0;
+    transition-duration: 0.6s;
+}
+
+aside nav ul li{
+	align-items: center;
+	list-style-type: none;
+	padding: 10px;
+    cursor:pointer;
+    transition-duration: 0.6s;
+}
+
+aside nav ul li:hover{
+    background-color: #4B515D;
+    transition-duration: 0.6s;
+}
+
+aside nav ul li:hover a{
+    color: white;
+    font-size: 20px;
+    transition-duration: 0.6s;
+}
+
+.shoppingCart nav{
+    /* float: right; */
+    color: black;
+    text-align: center;
+    padding: 30px;
+}
+
+.shoppingCart nav ul{
+    padding-right:0;
+    transition-duration: 0.6s;
+}
+
+.shoppingCart nav ul li{
+	align-items: center;
+	list-style-type: none;
+	padding: 10px;
+    cursor:pointer;
+    transition-duration: 0.6s;
+}
+
+.shoppingCart nav ul li:hover{
+    background-color: #4B515D;
+    transition-duration: 0.6s;
+}
+
+.shoppingCart nav ul li:hover a{
+    color: white;
+    font-size: 20px;
+    transition-duration: 0.6s;
+}
+
+main{
+    display: table;
+    margin: auto;
+    text-align: center;
+}
+
+.body{
+    margin: 0px;
+    text-align: justify;
+}
+
+.boton{
+    padding: 7px;
+    border-radius: 6px;
+    background-color: #3E4551;
+    color: white;
+    border: 1px solid white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #5f5f5f;
+    border: 1px solid black;
+    color: white;
+}
+
+.boton-carrito{
+    padding: 7px;
+    border-radius: 6px;
+    border: 2px solid black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 4px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.boton-carrito:hover {
+    background-color: beige;
+    border: 2px solid gainsboro;
+}
+
+.formulario, .libro_lista{
+    display: table;
+    margin: auto;
+    text-align: center;
+}
+
+.formulario div input{
+    color: black;
+}
+
+.formulario a{
+    color: white;
+    text-decoration: none;
+}
+
+.formulario a:hover{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.lista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.libro_lista {
+    width: 250px;
+}
+
+.libro_lista a{
+    color: aliceblue;
+}
+
+.libro_lista a:hover, .prestamo-detail a:hover{
+    text-decoration: none;
+    color: gold;
+}
+
+.pagination{
+    text-align: center;
+}
+
+.ejemplares, .prestamo{
+    display: flex;
+    align-items: center;
+}
+
+.prestamo-detail{
+    margin-right: 30px;
+}
+
+.datos_ejemplar{
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+
+.add-libro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.edit-delete-libro, .add-ejemplar{
+    display: flex;
+}
+
+.add-ejemplar h4{
+    margin-right: 15px;
+}
+
+.prestamo-detail a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.mensaje-bienvenida {
+    color: #4B515D;
+    text-align: center;
+}
+
+.mensaje-bienvenida p {
+    font-size: 16px;
+}
+
+.input-register{
+    color: black;
+}
+
+.contenido-carrito{
+    text-align: center;
+}
+
+.contenido-carrito p {
+    padding: 5px;
+}
+
+.delete-item-shopping-cart{
+    background-color: tomato;
+    border: 2px solid black;
+    color: white;
+    border-radius: 50px;
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.compra-final {
+    display: flex;
+    justify-content: center;
+}
+
+.compra-final p {
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+#map {
+    height: 600px;
+}

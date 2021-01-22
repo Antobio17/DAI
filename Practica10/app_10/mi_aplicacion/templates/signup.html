@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Registrarse {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h1>Registrarse</h1>
+    <p>Registrate para poder acceder al contenido de la Biblioteca Virtual</p>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="formulario">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <p>
+          {{ field.label_tag }}<br>
+          <div class="input-register">
+            {{ field }}
+          </div>
+          {% if field.help_text %}
+            <small style="color: grey">{{ field.help_text }}</small>
+          {% endif %}
+          {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+        </p>
+      {% endfor %}
+      <button class="boton" type="submit">Sign up</button>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Devolver {% endblock %}
+
+{% block jumbotron %} 
+    <div style="background-color: #4B515D !important" class="jumbotron text-center">
+        <h1>Devolver libro</h1>
+        <p>Está apunto de devolver el libro <strong>{{ prestamo.ejemplar.libro.titulo }}</strong> que debe entregar el {{ prestamo.devolucion }} </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>¿Estas seguro de que devolver este libro?</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input class="boton" type="submit" action="" value="Si, deseo devolverlo." />
+    </form>
+{% endblock %}

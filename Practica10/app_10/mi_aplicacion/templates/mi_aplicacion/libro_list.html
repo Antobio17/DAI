@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} Libros {% endblock %}
+
+{% block jumbotron %} 
+    <div style="background-color: #4B515D !important" class="jumbotron text-center">
+        <h1>Libros</h1>
+        {% if user.is_authenticated %}
+        <p>Haz click en el título para ver mas detalles.</p>
+        {% else %}
+        <p>Lista de libros disponibles en la Libreria Virtual. Inicia sesión para poder acceder a ellos</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.username == 'admin' %}
+        <div class="add-libro">
+            <form  method="" action="{% url 'libro_create' %}">
+                <input style="color: aliceblue;" type="submit" class="boton" value="Añadir libro" />
+            </form>
+        </div>
+        {% endif %}       
+    {% endif %}       
+    {% if libro_list %}
+        <div class="lista">
+        {% for libro in libro_list %}
+            <div id="libro" class="libro_lista">
+            {% if libro.portada %}
+            {% load static %}
+            <img  src="{{ libro.portada }}" alt="Portada" width="150" height="200">
+            {% else %}
+            {% load static %}
+            <img src="{% static 'img/portada_defecto.png' %}" alt="Portada" width="150" height="200">
+            {% endif %}
+                {% if user.is_authenticated %}
+                <a href="{{ libro.get_absolute_url }}"> <h4 id="titulo"><strong>{{ libro.titulo }}</strong></h4> </a>
+                {% else %}
+                <h4 id="titulo">{{ libro.titulo }}</h4>
+                {% endif %}
+            <h5>{{libro.autor}}</h5>
+            <h4 id="precio">{{libro.precio}}$</h4>
+            <button id="addToCart" class="boton" type="submit">Añadir al carrito</button>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+    <h2>No hay ningún libro actualmente en la Libreria Virtual.</h2>
+    {% endif %}       
+{% endblock %}

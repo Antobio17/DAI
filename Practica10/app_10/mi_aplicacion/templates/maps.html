@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% csrf_token %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block jumbotron %} 
+  <div style="background-color: #4B515D !important" class="jumbotron text-center stylish-color">
+    <h2>Encuentra nuestra tienda en Google Maps</h2>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div id="map">
+
+    </div>
+  </div>
+{% endblock %}

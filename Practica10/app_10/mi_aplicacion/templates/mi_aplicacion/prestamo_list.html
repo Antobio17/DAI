@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Mis préstamos {% endblock %}
+
+{% block jumbotron %} 
+    <div style="background-color: #4B515D !important" class="jumbotron text-center">
+        <h1>Mis Prestamos</h1>
+        <p>Lista de prestamos en curso.</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if prestamo_list %}
+      {% for prestamo in prestamo_list %}
+      <hr>
+      <div class="prestamo">
+        <div class="prestamo-detail"> 
+          <p class="text-muted"><strong>Id: {{ prestamo.ejemplar.id }}</strong></p>
+          <a href="{% url 'libro-detail' prestamo.ejemplar.libro.pk %}"><strong>{{ prestamo.ejemplar.libro.titulo }}</strong></a> 
+          <p {% if prestamo.expirado %} style="color:red;" {% endif%}> Devolución: {{ prestamo.devolucion }} </p>     
+        </div>
+        <form  method="" action="{% url 'devolver_prestamo' pk=prestamo.ejemplar.id username=user.username %}">
+          <input type="submit" class="boton" value="Devolver libro" />
+        </form>
+      </div>
+      {% endfor %}
+
+    {% else %}
+      <h4>No tienes ningún préstamo pendiente.</h4>
+    {% endif %}       
+{% endblock %}

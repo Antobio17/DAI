@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  app_10:
+    build: .
+    container_name: app_10
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app_10:/app_10
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db_10
+
+  db_10:
+    image: postgres
+    container_name: db_10
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./datos_db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db_10
+    ports:
+      - 8020:8020
